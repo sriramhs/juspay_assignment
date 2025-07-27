@@ -34,21 +34,21 @@ export const sectionContainerStyle: SxProps<Theme> = {
 };
 
 export const sectionHeaderStyle: SxProps<Theme> = {
-  fontSize: 12,
-  fontWeight: 500,
-  textTransform: "uppercase",
-  letterSpacing: 0.5,
+  fontSize: 14,
+  fontWeight: 400,
+   color: '#9e9e9e',
+   pl:2
 };
 
 export const listItemStyle: SxProps<Theme> = {
   display: "flex",
   alignItems: "center",
   cursor: "pointer",
-  m: 1,
+  // m: 1,
 };
 
 export const nestedListStyle: SxProps<Theme> = {
-  pl: 4,
+  pl: 7,
 };
 
 export const activeItemStyle: SxProps<Theme> = {
@@ -63,8 +63,8 @@ export const itemTextStyle: SxProps<Theme> = {
 
 export const itemIconStyle: SxProps<Theme> = {
   fontSize: 18,
-  color: "text.secondary",
-  mr: 1.5,
+  // color: "text.secondary",
+  // mr: 1.5,
 };
 
 export const accordianStyle: SxProps<Theme> = {

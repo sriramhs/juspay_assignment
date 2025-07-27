@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import {
   IconButton,
   Breadcrumbs,
@@ -14,7 +14,7 @@ import {
 
 } from '@mui/icons-material';
 import { headerStyles } from '../styles/Header';
-import { toggleTheme } from '../redux/reducers/uiSlice';
+import { toggleLeft, toggleRight, toggleTheme } from '../redux/reducers/uiSlice';
 import { useAppDispatch } from '../redux/hooks';
 import LeftCollapseIcon from "../assets/Sidebar.svg";
 import BellIcon from "../assets/BellIcon.svg";
@@ -31,14 +31,11 @@ import HistoryIconDark from "../assets/HistoryIconDark.svg";
 import { useSelector } from 'react-redux';
 import type { RootState } from '../redux/store';
 
-interface HeaderProps {
-  onMenuToggle?: () => void;
-}
 
-const Header: React.FC<HeaderProps> = ({ onMenuToggle }) => {
+
+const Header: React.FC = ({ }) => {
   const [searchValue, setSearchValue] = useState('');
   const location = useLocation();
-  const navigate = useNavigate();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const isSmall = useMediaQuery(theme.breakpoints.down('sm'));
@@ -63,9 +60,6 @@ const Header: React.FC<HeaderProps> = ({ onMenuToggle }) => {
 
   const breadcrumbs = generateBreadcrumbs();
 
-  const handleBreadcrumbClick = (path: string) => {
-    navigate(path);
-  };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
@@ -85,7 +79,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuToggle }) => {
           edge="start"
           color="inherit"
           aria-label="menu"
-          onClick={onMenuToggle}
+          onClick={()=>{dispatch(toggleLeft())}}
           sx={headerStyles.menuButton}
 
         >
@@ -170,7 +164,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuToggle }) => {
           />
         </IconButton>
 
-        <IconButton color="inherit" sx={headerStyles.iconButton}>
+        <IconButton color="inherit" sx={headerStyles.iconButton} onClick={()=>{dispatch(toggleRight())}}>
           <Box
             component="img"
             src={mode === 'dark' ? RightCollapseIconDark : RightCollapseIcon}

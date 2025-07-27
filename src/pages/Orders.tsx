@@ -279,7 +279,7 @@ const OrderPage: React.FC = () => {
 
 export default OrderPage;
 
-export const StyledTableCell = styled(TableCell)(({ theme }) => ({
+export const StyledTableCell = styled(TableCell)(({ }) => ({
   [`&.${tableCellClasses.head}`]: {
     padding: "0 15px",
     height: "40px",

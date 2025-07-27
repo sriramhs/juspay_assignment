@@ -1,23 +1,14 @@
 
 import { Box, Grid, Typography } from '@mui/material';
-import {
-  LineChart,
-  Line,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  ResponsiveContainer,
-  PieChart,
-  Pie,
-  Cell
-} from 'recharts';
 import RevenueChart from '../components/RevenueChart';
 import TotalSalesChart from '../components/TotalSales';
 import { ProjectionsVsActualsChart } from '../components/ProjectsionsBarChart';
 import StatsGrid from '../components/StatsGrid';
+import TopSellingProducts from '../components/TopSellingProducts';
+import RevenueByLocation from '../components/RevenueByLocation';
 
 // Sample data
+{/* @ts-ignore */}
 const revenueData = [
   { month: 'Jan', current: 15, previous: 12 },
   { month: 'Feb', current: 18, previous: 15 },
@@ -26,7 +17,7 @@ const revenueData = [
   { month: 'May', current: 25, previous: 24 },
   { month: 'Jun', current: 28, previous: 26 }
 ];
-
+{/* @ts-ignore */}
 const projectionData = [
   { month: 'Jan', value: 15 },
   { month: 'Feb', value: 18 },
@@ -35,7 +26,7 @@ const projectionData = [
   { month: 'May', value: 25 },
   { month: 'Jun', value: 28 }
 ];
-
+{/* @ts-ignore */}
 const salesData = [
   { name: 'Direct', value: 68.5, color: '#1f2937' },
   { name: 'Affiliate', value: 20, color: '#6366f1' },
@@ -43,14 +34,7 @@ const salesData = [
   { name: 'E-mail', value: 3.5, color: '#06b6d4' }
 ];
 
-const topProducts = [
-  { name: 'ASOS Ridley High Waist', price: '$79.49', quantity: 82, amount: '$6,518.18' },
-  { name: 'Marco Lightweight Shirt', price: '$128.50', quantity: 37, amount: '$4,754.50' },
-  { name: 'Half Sleeve Shirt', price: '$39.99', quantity: 64, amount: '$2,559.36' },
-  { name: 'Lightweight Jacket', price: '$20.00', quantity: 184, amount: '$3,680.00' },
-  { name: 'Marco Shoes', price: '$79.49', quantity: 64, amount: '$5,087.36' }
-];
-
+{/* @ts-ignore */}
 const locationData = [
   { city: 'New York', percentage: '72K' },
   { city: 'San Francisco', percentage: '39K' },
@@ -77,30 +61,32 @@ const DashBoard = () => {
       </Typography>
 
       <Grid container spacing={2} columns={4}>
-      {/* Row 1 */}
+      {/* @ts-ignore */}
       <Grid item xs={2}>
          <StatsGrid/>
       </Grid>
+      {/* @ts-ignore */}
       <Grid item xs={2}>
           <ProjectionsVsActualsChart/>
       </Grid>
 
       {/* Row 2 */}
+      {/* @ts-ignore */}
       <Grid item xs={3}>
      <RevenueChart/>
       </Grid>
+      {/* @ts-ignore */}
       <Grid item xs={1}>
-          <Box sx={{ bgcolor: '#ede7f6', p: 2, borderRadius: 1 }}>
-          <Typography>Item 5 (1 column)</Typography>
-        </Box>
+          <RevenueByLocation/>
       </Grid>
 
       {/* Row 3 */}
+      {/* @ts-ignore */}
       <Grid item xs={3}>
-        <Box sx={{ bgcolor: '#ede7f6', p: 2, borderRadius: 1 }}>
-          <Typography>Item 6 (1 column)</Typography>
-        </Box>
+        
+        <TopSellingProducts/>
       </Grid>
+      {/* @ts-ignore */}
       <Grid item xs={1}>
          <TotalSalesChart/>
       </Grid>

@@ -40,6 +40,15 @@ import account from "../assets/leftbaricons/account.svg";
 import corporate from "../assets/leftbaricons/corporate.svg";
 import blog from "../assets/leftbaricons/blog.svg";
 import social from "../assets/leftbaricons/social.svg";
+import defaultDarkIcon from "../assets/leftbaricons/defaultDark.svg";
+import ecommerceDark from "../assets/leftbaricons/ecoomerceDark.svg";
+import projectsDark from "../assets/leftbaricons/projectsDark.svg";
+import coursesDark from "../assets/leftbaricons/coursesDark.svg";
+import userprofileDark from "../assets/leftbaricons/userprofileDark.svg";
+import accountDark from "../assets/leftbaricons/accountDark.svg";
+import corporateDark from "../assets/leftbaricons/corporateDark.svg";
+import blogDark from "../assets/leftbaricons/blogDark.svg";
+import socialDark from "../assets/leftbaricons/socialDark.svg";
 import { useSelector } from "react-redux";
 import type { RootState } from "../redux/store";
 import Divider from "@mui/material/Divider";
@@ -101,11 +110,11 @@ const LeftSidebar: FC<Props> = ({ open }) => {
         <Typography sx={sectionHeaderStyle}>Dashboards</Typography>
         <List disablePadding>
           {[
-            { icon: defaultIcon, label: "Default", path: "default" },
-            { icon: ecommerce, label: "eCommerce", path: "orders" },
-            { icon: projects, label: "Projects", path: "projects" },
-            { icon: courses, label: "Online Courses", path: "courses" },
-          ].map(({ icon, label, path }) => {
+            { icon: defaultIcon,iconDark: defaultDarkIcon, label: "Default", path: "default" },
+            { icon: ecommerce,iconDark: ecommerceDark, label: "eCommerce", path: "orders" },
+            { icon: projects,iconDark: projectsDark, label: "Projects", path: "projects" },
+            { icon: courses,iconDark: coursesDark, label: "Online Courses", path: "courses" },
+          ].map(({ icon, label, path ,iconDark}) => {
             let styles = {
               ...listItemStyle,
               ...(activeDashboard === label ? activeItemStyle : {}),
@@ -138,7 +147,7 @@ const LeftSidebar: FC<Props> = ({ open }) => {
                   {" "}
                   <Box
                     component="img"
-                    src={mode === "dark" ? icon : icon}
+                    src={mode !== "dark" ? icon : iconDark}
                     alt="Collapse"
                   />
                 </ListItemIcon>
@@ -167,7 +176,7 @@ const LeftSidebar: FC<Props> = ({ open }) => {
               {" "}
               <Box
                 component="img"
-                src={mode === "dark" ? userprofile : userprofile}
+                src={mode !== "dark" ? userprofile : userprofileDark}
                 alt="Collapse"
               />
             </ListItemIcon>
@@ -193,17 +202,17 @@ const LeftSidebar: FC<Props> = ({ open }) => {
 
         {/* Other standalone pages */}
         {[
-          { icon: account, label: "Account" },
-          { icon: corporate, label: "Corporate" },
-          { icon: blog, label: "Blog" },
-          { icon: social, label: "Social" },
-        ].map(({ icon, label }) => (
+          { icon: account,iconDark: accountDark, label: "Account" },
+          { icon: corporate,iconDark: corporateDark, label: "Corporate" },
+          { icon: blog,iconDark: blogDark, label: "Blog" },
+          { icon: social,iconDark: socialDark, label: "Social" },
+        ].map(({ icon, label ,iconDark}) => (
           <ListItem key={label} sx={listItemStyle}>
             <ListItemIcon sx={itemIconStyle}>
               {" "}
               <Box
                 component="img"
-                src={mode === "dark" ? icon : icon}
+                src={mode !== "dark" ? icon : iconDark}
                 alt="Collapse"
               />
             </ListItemIcon>
