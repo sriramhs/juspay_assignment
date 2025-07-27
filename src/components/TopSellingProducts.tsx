@@ -33,7 +33,8 @@ const TopSellingProducts = () => {
     <Box
       sx={{
         flex: { xs: "1 1 100%", lg: "1 1 100%" },
-        minWidth: { xs: "100%", lg: "662px",xl:"840px" },
+        minWidth: { xs: "530px", lg: "662px",xl:"840px" },
+         display:{xs:"none",md:"inherit"},
         backgroundColor: (theme)=>theme.palette.custom.secondaryBg,
         borderRadius:"8px"
       }}

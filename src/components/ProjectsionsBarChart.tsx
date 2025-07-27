@@ -35,7 +35,7 @@ export const ProjectionsVsActualsChart: React.FC = () => {
         borderRadius: 2,
         p: 3,
         height: 300,          
-        minWidth: {lg:483,xl:520},        
+        minWidth: {xs:50,sm:730,md:300,lg:483,xl:520},        
         overflow: 'hidden',  
       }}
     >

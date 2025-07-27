@@ -19,7 +19,7 @@ const innerRadius = 45;
 // SX styles
 const sxStyles = {
   card: {
-    width: { lg: 245,xl:300 },
+    width: { xs:190,lg: 245,xl:300 },
     borderRadius: 2,
     p: 2,
     backgroundColor: (theme: any) => theme.palette.custom.secondaryBg,

@@ -29,8 +29,9 @@ export default function RevenueChart() {
         p: 3,
        backgroundColor: (theme:any) => theme.palette.custom.secondaryBg,
         width: '100%',
+        display:{xs:"none",md:"inherit"},
         // maxWidth: 600,
-         minWidth: { xs: "100%", lg: "662px",xl:"840px" },
+         minWidth: { xs: "150px", lg: "662px",xl:"840px" },
          height:"100%"
       }}
     >
@@ -90,15 +91,15 @@ export default function RevenueChart() {
             type="monotone"
             dataKey="previous"
             stroke="#A8C5DA"
-            strokeWidth={3}
+            strokeWidth={4}
             dot={false}
           />
           <Line
             type="monotone"
             dataKey="current"
             stroke="#000"
-            strokeWidth={3}
-            strokeDasharray="5 5"
+            strokeWidth={4}
+            // strokeDasharray="5 5"
             dot={false}
             isAnimationActive={true}
           />
@@ -106,11 +107,11 @@ export default function RevenueChart() {
             type="monotone"
             dataKey="current"
             stroke={theme?.palette?.custom?.secondary}
-            strokeWidth={2}
+            strokeWidth={4}
             dot={false}
             isAnimationActive={true}
             strokeDasharray={undefined}
-            data={data.slice(0, 4)} // Only first 4 points solid
+            data={data.slice(0, 4)} 
           />
         </LineChart>
       </ResponsiveContainer>

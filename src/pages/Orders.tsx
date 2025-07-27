@@ -43,9 +43,16 @@ import sort from "../assets/ordersicons/sort.svg";
 import sortDark from "../assets/ordersicons/sortDark.svg";
 import calendar from "../assets/ordersicons/calendar.svg";
 import calendarDark from "../assets/ordersicons/calendarDark.svg";
+import dots from "../assets/ordersicons/3dots.svg";
+import dotsDark from "../assets/ordersicons/3dotsDark.svg";
 import { orders } from "../data/ordersMockData";
+import avatar1 from "../assets/avatar1.png";
+import avatar2 from "../assets/Female05.png";
+import avatar3 from "../assets/Male08.png";
+import avatar4 from "../assets/natalie.png";
+import avatar5 from "../assets/orlando.png";
 const OrderPage: React.FC = () => {
- 
+ const avatarArray = [avatar1,avatar2,avatar3,avatar4,avatar5]
   const {
     page,
     setPage,
@@ -124,10 +131,10 @@ const OrderPage: React.FC = () => {
 
       {/* Table */}
       <TableContainer sx={tableContainerSx}>
-        <Table>
+        <Table sx={{ tableLayout: 'fixed', width: '100%' }}>
           <TableHead>
             <TableRow>
-              <StyledTableCell>
+              <StyledTableCell sx={{width:"5%"}}>
                 <Checkbox checked={false} disabled size="small" />
               </StyledTableCell>
               <StyledTableCell sx={{ color: "#9e9e9e", fontSize: "12px" }}>
@@ -139,7 +146,7 @@ const OrderPage: React.FC = () => {
                 Order ID
                 {/* </TableSortLabel> */}
               </StyledTableCell>
-              <StyledTableCell></StyledTableCell>
+              <StyledTableCell sx={{width:"5%"}}></StyledTableCell>
               <StyledTableCell sx={{ color: "#9e9e9e", fontSize: "12px" }}>
                 User
               </StyledTableCell>
@@ -158,15 +165,15 @@ const OrderPage: React.FC = () => {
               <StyledTableCell sx={{ color: "#9e9e9e", fontSize: "12px" }}>
                 Date
               </StyledTableCell>
-              <StyledTableCell sx={{ color: "#9e9e9e", fontSize: "12px" }}>
+              <StyledTableCell sx={{ color: "#9e9e9e", fontSize: "12px",width:"10%" }}>
                 Status
               </StyledTableCell>
-              <StyledTableCell></StyledTableCell>
+              <StyledTableCell sx={{width:"6%"}}></StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {paginatedData.map((row: any, i: number) => (
-              <TableRow key={i} hover  onMouseOver={() => {
+              <TableRow key={i} hover  onMouseEnter={() => {
                     setHoverId(row.id);
                   }}
                   onMouseLeave={()=>{setHoverId(null)}}
@@ -182,7 +189,7 @@ const OrderPage: React.FC = () => {
                 </StyledTableCell>
                 <StyledTableCell>{row.id}</StyledTableCell>
                 <StyledTableCell><Avatar
-                    src={row.avatar}
+                    src={avatarArray[i%5]}
                     // sx={timelineDotStyle}
                     sizes="small"
                     sx={{height:20,width:20}}
@@ -209,14 +216,13 @@ const OrderPage: React.FC = () => {
                   <FiberManualRecordIcon sx={{ fontSize: 8, mr: 1 }} />
                   {row.status}
                 </StyledTableCell>
-                <StyledTableCell
-                 sx={{}}
+                <StyledTableCell 
                 >
                  
                     <Button>
                      {HoverId === row.id && (  <Box
                         component="img"
-                        src={mode === "dark" ? calendarDark : calendar}
+                        src={mode === "dark" ? dotsDark : dots}
                         alt="Collapse"
                       />)}
                     </Button>

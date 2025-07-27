@@ -1,7 +1,7 @@
 import type { SxProps, Theme } from '@mui/material';
 
 export const drawerStyle: SxProps<Theme> = {
-  width: 280,
+  width: {md:200,lg:240,xl:280},
   flexShrink: 0,
 };
 

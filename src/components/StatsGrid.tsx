@@ -52,7 +52,7 @@ const StatsGrid = () => {
           >
             {value}
           </Typography>
-          <Box sx={{display:"flex",aligntItems:"center",alignText:"center"}}>
+          <Box sx={{display:"flex",aligntItems:"center",alignText:"center",gap:1}}>
             {" "}
             <Typography
               sx={{
@@ -65,6 +65,7 @@ const StatsGrid = () => {
             </Typography>
             <Box
               component="img"
+              sx={{mb:1}}
               src={
                 index === 1 || index === 4
                   ? upWhite
@@ -90,11 +91,11 @@ const StatsGrid = () => {
         display: "flex",
         flexWrap: "wrap",
         gap: 3,
-        width: {lg:"28vw",xl:"32vw"},
-        height: 300,
+        width: {xs:"80vw",md:"70vw",lg:"28vw",xl:"32vw"},
+        height: {md:300,lg:300},
       }}
     >
-      <Box sx={{ width: { xs: "47%" } }}>
+      <Box sx={{ width: { xs: "70%",md:"47%" } }}>
         <MetricCard
           title="Customers"
           value="3,781"
@@ -103,7 +104,7 @@ const StatsGrid = () => {
           index={1}
         />
       </Box>
-      <Box sx={{ width: { xs: "47%" } }}>
+      <Box sx={{ width: { xs: "70%",md:"47%" } }}>
         <MetricCard
           title="Orders"
           value="1,219"
@@ -112,7 +113,7 @@ const StatsGrid = () => {
           index={2}
         />
       </Box>
-      <Box sx={{ width: { xs: "47%" } }}>
+      <Box sx={{ width: { xs: "70%",md:"47%" } }}>
         <MetricCard
           title="Revenue"
           value="$695"
@@ -121,7 +122,7 @@ const StatsGrid = () => {
           index={3}
         />
       </Box>
-      <Box sx={{ width: { xs: "47%" } }}>
+      <Box sx={{ width:{ xs: "70%",md:"47%" } }}>
         <MetricCard
           title="Growth"
           value="30.1%"

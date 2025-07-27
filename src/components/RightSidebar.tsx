@@ -87,7 +87,7 @@ const RightSidebar: FC<Props> = ({ open }) => {
       open={open}
       sx={{
         ...drawerStyle,
-        width: open ? 280 : 0,
+        width: open ? {md:200,lg:240,xl:280} : 0,
         transition: theme.transitions.create("width", {
           easing: theme.transitions.easing.sharp,
           duration: theme.transitions.duration.enteringScreen,

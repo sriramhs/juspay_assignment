@@ -74,16 +74,14 @@
   }
 }
 
-/* Tablet: force-hide right and shrink left slightly */
 @media (max-width: 1024px) {
   .layout-grid {
     --left-width:  150px;
-    --right-width: 0;                  /* right is always hidden */
+    --right-width: 0;                  
     --main-min-width: 0px;
   }
 }
 
-/* Mobile: hide both sidebars */
 @media (max-width: 768px) {
   .layout-grid {
     --left-width:    0;

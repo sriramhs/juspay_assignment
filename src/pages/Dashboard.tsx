@@ -48,9 +48,10 @@ const DashBoard = () => {
   return (
     <Box sx={{
       p: 3,
-      maxWidth: { xs: '100%', md: 1228 },
+      maxWidth: { xs: '100vw', md: 1228 },
       mx: 'auto',
-      minHeight: '100vh'
+      minHeight: '100vh',
+      ml:{xs:5,md:10,lg:'auto',xl:'auto'}
     }}>
       <Typography  sx={{ 
         mb: 3, 
@@ -60,7 +61,7 @@ const DashBoard = () => {
         eCommerce
       </Typography>
 
-      <Grid container spacing={3} columns={4}>
+      <Grid container spacing={3} columns={4} >
       {/* @ts-ignore */}
       <Grid item xs={2}>
          <StatsGrid/>
