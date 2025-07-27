@@ -181,11 +181,11 @@ const RightSidebar: FC<Props> = ({ open }) => {
                   />
                   {idx < activities.length - 1 && (
                     <TimelineConnector
-                      sx={{ mt: "4px", borderColor: "grey.300" }}
+                      sx={{ mt: "8px" }}
                     />
                   )}
                 </TimelineSeparator>
-                <TimelineContent sx={{ pt: -2, px: 1 }}>
+                <TimelineContent sx={{ pt: 0, px: 1 }}>
                   <Typography sx={primaryTextStyle}>{act.primary}</Typography>
                   <Typography sx={secondaryTextStyle}>
                     {act.secondary}

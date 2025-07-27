@@ -16,6 +16,7 @@ import {
   styled,
   tableCellClasses,
   Button,
+  Avatar,
 } from "@mui/material";
 import { useOrderTable } from "../utils/orders";
 import {
@@ -42,54 +43,9 @@ import sort from "../assets/ordersicons/sort.svg";
 import sortDark from "../assets/ordersicons/sortDark.svg";
 import calendar from "../assets/ordersicons/calendar.svg";
 import calendarDark from "../assets/ordersicons/calendarDark.svg";
+import { orders } from "../data/ordersMockData";
 const OrderPage: React.FC = () => {
-  const orders: any[] = [
-    {
-      id: "#CMP801",
-      user: "Natall Craig",
-      avatar: "/avatar1.png",
-      project: "Landing Page",
-      address: "Meadow Lane Oakland",
-      date: "Just now",
-      status: "inProgress",
-    },
-    {
-      id: "#CMP802",
-      user: "Kate Morrison",
-      avatar: "/avatar2.png",
-      project: "CRM Admin pages",
-      address: "Larry San Francisco",
-      date: "A minute ago",
-      status: "complete",
-    },
-    {
-      id: "#CMP803",
-      user: "Drew Cano",
-      avatar: "/avatar3.png",
-      project: "Client Project",
-      address: "Bagwell Avenue Ocala",
-      date: "1 hour ago",
-      status: "pending",
-    },
-    {
-      id: "#CMP804",
-      user: "Orlando Diggs",
-      avatar: "/avatar4.png",
-      project: "Admin Dashboard",
-      address: "Washburn Baton Rouge",
-      date: "Yesterday",
-      status: "approved",
-    },
-    {
-      id: "#CMP805",
-      user: "Andi Lane",
-      avatar: "/avatar5.png",
-      project: "App Landing Page",
-      address: "Nest Lane Olivette",
-      date: "Feb 2, 2023",
-      status: "rejected",
-    },
-  ];
+ 
   const {
     page,
     setPage,
@@ -118,7 +74,6 @@ const OrderPage: React.FC = () => {
   };
   const mode = useSelector((state: RootState) => state.ui.mode);
   const [HoverId, setHoverId] = useState<any>(null);
-
   return (
     <Box sx={containerSx}>
       {/* Main Heading */}
@@ -129,7 +84,7 @@ const OrderPage: React.FC = () => {
       {/* Toolbar with actions and search */}
       <Box sx={toolbarSx}>
         <Box>
-          <IconButton size="small">
+          <IconButton size="small" onClick={()=>{}}>
             {" "}
             <Box
               component="img"
@@ -184,6 +139,7 @@ const OrderPage: React.FC = () => {
                 Order ID
                 {/* </TableSortLabel> */}
               </StyledTableCell>
+              <StyledTableCell></StyledTableCell>
               <StyledTableCell sx={{ color: "#9e9e9e", fontSize: "12px" }}>
                 User
               </StyledTableCell>
@@ -212,7 +168,9 @@ const OrderPage: React.FC = () => {
             {paginatedData.map((row: any, i: number) => (
               <TableRow key={i} hover  onMouseOver={() => {
                     setHoverId(row.id);
-                  }}>
+                  }}
+                  onMouseLeave={()=>{setHoverId(null)}}
+                  >
                 <StyledTableCell>
                   <Checkbox
                     checked={selectedRows?.includes(row?.id)}
@@ -223,6 +181,12 @@ const OrderPage: React.FC = () => {
                   />
                 </StyledTableCell>
                 <StyledTableCell>{row.id}</StyledTableCell>
+                <StyledTableCell><Avatar
+                    src={row.avatar}
+                    // sx={timelineDotStyle}
+                    sizes="small"
+                    sx={{height:20,width:20}}
+                  /></StyledTableCell>
                 <StyledTableCell>{row.user}</StyledTableCell>
                 <StyledTableCell>{row.project}</StyledTableCell>
                 <StyledTableCell>{row.address}</StyledTableCell>

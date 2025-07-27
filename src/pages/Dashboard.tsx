@@ -60,7 +60,7 @@ const DashBoard = () => {
         eCommerce
       </Typography>
 
-      <Grid container spacing={2} columns={4}>
+      <Grid container spacing={3} columns={4}>
       {/* @ts-ignore */}
       <Grid item xs={2}>
          <StatsGrid/>

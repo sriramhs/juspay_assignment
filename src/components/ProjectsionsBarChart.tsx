@@ -34,9 +34,9 @@ export const ProjectionsVsActualsChart: React.FC = () => {
         backgroundColor: theme.palette.custom.secondaryBg,
         borderRadius: 2,
         p: 3,
-        height: 300,          // ↑ increased container height
-        minWidth: 400,        // ↑ increased min-width
-        overflow: 'hidden',   // prevent stray overflow
+        height: 300,          
+        minWidth: 483,        
+        overflow: 'hidden',  
       }}
     >
       <Typography

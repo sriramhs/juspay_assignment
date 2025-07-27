@@ -78,6 +78,15 @@ export const lightTheme = createTheme({
       secondaryBg:"#f7f9fb"
     },
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1440,
+    },
+  },
   ...commonSettings,
 });
 
@@ -99,6 +108,15 @@ export const darkTheme = createTheme({
       lineGrey:"rgba(255, 255, 255, 0.1)",
       secondary:'#c6c7f8',
       secondaryBg:"#262627"
+    },
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1440,
     },
   },
   ...commonSettings,

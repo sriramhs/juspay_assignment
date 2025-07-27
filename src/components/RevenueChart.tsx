@@ -8,7 +8,7 @@ import {
   CartesianGrid,
   Area,
 } from 'recharts';
-import { Box, Typography, Stack } from '@mui/material';
+import { Box, Typography, Stack, useTheme, Divider } from '@mui/material';
 import CircleIcon from '@mui/icons-material/Circle';
 
 const data = [
@@ -21,23 +21,29 @@ const data = [
 ];
 
 export default function RevenueChart() {
+  const theme = useTheme();
   return (
     <Box
       sx={{
         borderRadius: 3,
         p: 3,
-        bgcolor: '#F9FAFB',
+       backgroundColor: (theme:any) => theme.palette.custom.secondaryBg,
         width: '100%',
         // maxWidth: 600,
+         minWidth: { xs: "100%", lg: "662px" },
+         height:"100%"
       }}
     >
-      <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 2 }}>
-        Revenue
-      </Typography>
+    
 
       <Stack direction="row" spacing={3} alignItems="center" sx={{ mb: 1 }}>
+          <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 2 }}>
+        Revenue
+      </Typography>
+      <Divider flexItem orientation="vertical" />
         <Stack direction="row" spacing={1} alignItems="center">
-          <CircleIcon sx={{ fontSize: 8, color: 'black' }} />
+          
+          <CircleIcon sx={{ fontSize: 8, color: theme?.palette?.custom?.secondary }} />
           <Typography variant="body2">
             Current Week <b>$58,211</b>
           </Typography>
@@ -51,15 +57,16 @@ export default function RevenueChart() {
         </Stack>
       </Stack>
 
-      <ResponsiveContainer width="100%" height={200}>
+      <ResponsiveContainer width="100%" height={"90%"}>
         <LineChart data={data} margin={{ top: 10, right: 0, left: -20, bottom: 0 }}>
-          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#F2F2F2" />
+          <CartesianGrid  vertical={false} stroke="#F2F2F2" />
           <XAxis
             dataKey="name"
-            axisLine={false}
+            axisLine={true}
             tickLine={false}
             stroke="#A0AEC0"
             fontSize={12}
+             dy={4}
           />
           <YAxis
             axisLine={false}
@@ -68,39 +75,40 @@ export default function RevenueChart() {
             fontSize={12}
             domain={[0, 30]}
             tickFormatter={(value) => `${value}M`}
+            dx={-2}
           />
           <Tooltip formatter={(value) => `${value}M`} />
           <Area
             type="monotone"
             dataKey="previous"
-            stroke="#B1D1F5"
-            fill="#B1D1F5"
+            stroke="#A8C5DA"
+            fill="#A8C5DA"
             fillOpacity={0.2}
             dot={false}
           />
           <Line
             type="monotone"
             dataKey="previous"
-            stroke="#B1D1F5"
-            strokeWidth={2}
+            stroke="#A8C5DA"
+            strokeWidth={3}
             dot={false}
           />
           <Line
             type="monotone"
             dataKey="current"
             stroke="#000"
-            strokeWidth={2}
+            strokeWidth={3}
             strokeDasharray="5 5"
             dot={false}
-            isAnimationActive={false}
+            isAnimationActive={true}
           />
           <Line
             type="monotone"
             dataKey="current"
-            stroke="#000"
+            stroke={theme?.palette?.custom?.secondary}
             strokeWidth={2}
             dot={false}
-            isAnimationActive={false}
+            isAnimationActive={true}
             strokeDasharray={undefined}
             data={data.slice(0, 4)} // Only first 4 points solid
           />

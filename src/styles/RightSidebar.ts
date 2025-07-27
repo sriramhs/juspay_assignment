@@ -3,7 +3,6 @@ import type { SxProps, Theme } from '@mui/material';
 export const drawerStyle: SxProps<Theme> = {
   width: 280,
   flexShrink: 0,
-  
 };
 
 export const sectionHeaderStyle: SxProps<Theme> = {
@@ -25,8 +24,8 @@ export const listItemStyle: SxProps<Theme> = {
 };
 
 export const iconContainerStyle: SxProps<Theme> = {
-  width: 32,
-  height: 32,
+  width: 20,
+  height: 20,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -47,12 +46,16 @@ export const secondaryTextStyle: SxProps<Theme> = {
 };
 
 export const sectionBoxStyle: SxProps<Theme> = {
-  mb: 3,
+  mb: 1,
+  ml:"10px"
+
 };
 
 export const timelineDotStyle: SxProps<Theme> = {
   p: 0,
   m: 0,
+  mt:"2px",
+  ml:1,
   width: 24,
   height: 24,
 };
@@ -63,6 +66,7 @@ export const timelinesectionBoxStyle: SxProps<Theme> = {
   // bgcolor: "#FFFFFF",
   // borderRadius: 2,
   // boxShadow: 1,
+  ml:"10px"
 };
 
 export const timelinesectionHeaderStyle: SxProps<Theme> = {
