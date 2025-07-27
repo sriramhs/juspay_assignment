@@ -33,7 +33,11 @@ import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineConnector from "@mui/lab/TimelineConnector";
-
+import avatar1 from "../assets/avatar1.png";
+import avatar2 from "../assets/Female05.png";
+import avatar3 from "../assets/Male08.png";
+import avatar4 from "../assets/natalie.png";
+import avatar5 from "../assets/orlando.png";
 interface Props {
   open: boolean;
 }
@@ -50,29 +54,31 @@ const RightSidebar: FC<Props> = ({ open }) => {
     },
     {
       id: "2",
-      avatar: avatar,
+      avatar: avatar2,
       primary: "Released a new version",
       secondary: "59 minutes ago",
     },
     {
       id: "3",
-      avatar: avatar,
+      avatar: avatar3,
       primary: "Submitted a bug",
       secondary: "12 hours ago",
     },
     {
       id: "4",
-      avatar: avatar,
+      avatar: avatar1,
       primary: "Modified A data in Page X",
       secondary: "Today, 11:59 AM",
     },
     {
       id: "5",
-      avatar: avatar,
+      avatar: ByeWind,
       primary: "Deleted a page in Project X",
       secondary: "Feb 2, 2023",
     },
   ];
+
+  const avatarArray = [avatar1,avatar2,avatar,avatar3,avatar4,avatar5]
 
   return (
     <Drawer
@@ -207,9 +213,9 @@ const RightSidebar: FC<Props> = ({ open }) => {
               "Andi Lane",
               "Kate Morrison",
               "Koray Okumus",
-            ].map((name) => (
+            ].map((name,i) => (
               <ListItem key={name} sx={listItemStyle}>
-                <Avatar sx={timelineDotStyle} src={ByeWind} />
+                <Avatar sx={timelineDotStyle} src={avatarArray[i]} />
                 <Typography sx={primaryTextStyle}>{name}</Typography>
               </ListItem>
             ))}

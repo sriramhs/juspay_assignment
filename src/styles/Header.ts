@@ -176,14 +176,7 @@ export const headerStyles: Record<string, SxProps<Theme>> = {
     height:'28px',
     border: '1px solid transparent',
     transition: 'all 0.2s ease-in-out',
-    '&:hover': {
-      backgroundColor: '#f0f0f0',
-    },
-    '&:focus-within': {
-      backgroundColor: 'white',
-      border: '1px solid #1976d2',
-      boxShadow: '0 0 0 2px rgba(25, 118, 210, 0.1)',
-    },
+   
   },
 
   searchIcon: {
