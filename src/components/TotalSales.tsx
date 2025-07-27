@@ -13,6 +13,7 @@ const data = [
 // Chart radii
 const outerRadius = 70;
 const innerRadius = 50;
+{/* @ts-ignore */}
 const strokeWidth = outerRadius - innerRadius;
 
 // SX styles
