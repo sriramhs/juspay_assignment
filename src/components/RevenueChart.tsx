@@ -30,7 +30,7 @@ export default function RevenueChart() {
        backgroundColor: (theme:any) => theme.palette.custom.secondaryBg,
         width: '100%',
         // maxWidth: 600,
-         minWidth: { xs: "100%", lg: "662px" },
+         minWidth: { xs: "100%", lg: "662px",xl:"840px" },
          height:"100%"
       }}
     >

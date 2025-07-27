@@ -13,13 +13,13 @@ const data = [
 ];
 
 // Chart radii
-const outerRadius = 70;
+const outerRadius = 75;
 const innerRadius = 45;
 
 // SX styles
 const sxStyles = {
   card: {
-    width: { lg: 245 },
+    width: { lg: 245,xl:300 },
     borderRadius: 2,
     p: 2,
     backgroundColor: (theme: any) => theme.palette.custom.secondaryBg,

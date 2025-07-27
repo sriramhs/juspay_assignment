@@ -30,7 +30,7 @@ const RevenueByLocation = () => {
     <Box
       sx={{
         flex: { xs: "1 1 100%", lg: "1 1 calc(33.333% - 12px)" },
-        minWidth: { xs: "100%", lg: "250px" },
+        minWidth: { xs: "100%", lg: "250px",xl:"300px" },
       }}
     >
       <Box

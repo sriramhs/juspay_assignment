@@ -90,7 +90,7 @@ const StatsGrid = () => {
         display: "flex",
         flexWrap: "wrap",
         gap: 3,
-        width: "28vw",
+        width: {lg:"28vw",xl:"32vw"},
         height: 300,
       }}
     >

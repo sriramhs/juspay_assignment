@@ -35,7 +35,7 @@ export const ProjectionsVsActualsChart: React.FC = () => {
         borderRadius: 2,
         p: 3,
         height: 300,          
-        minWidth: 483,        
+        minWidth: {lg:483,xl:520},        
         overflow: 'hidden',  
       }}
     >
@@ -77,13 +77,13 @@ export const ProjectionsVsActualsChart: React.FC = () => {
             tickFormatter={(v) => `${v}M`}
           />
 
-          <Bar dataKey="actual" stackId="a" radius={[0, 0, 0, 0]} barSize={20}>
+          <Bar dataKey="actual" stackId="a" radius={[0, 0, 0, 0]} barSize={25}>
             {data.map((_, idx) => (
               <Cell key={`actual-${idx}`} fill={'#A8C5DA'} />
             ))}
           </Bar>
 
-          <Bar dataKey="projection" stackId="a" radius={[6, 6, 0, 0]} barSize={20}>
+          <Bar dataKey="projection" stackId="a" radius={[6, 6, 0, 0]} barSize={25}>
             {data.map((_, idx) => (
               <Cell key={`proj-${idx}`} fill={'#cfdfeb'} />
             ))}
