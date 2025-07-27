@@ -1,0 +1,93 @@
+/* src/components/Layout.css */
+
+/* 1) Base grid: left | main | right */
+.layout-grid {
+  display: grid;
+  grid-template-rows: auto 1fr;  
+  /* left and right are fixed by vars; middle is fluid but never below its min width */
+  grid-template-columns:
+    var(--left-width,   212px)                     /* default left */
+    minmax(var(--main-min-width, 948px), 1fr)      /* fluid middle */
+    var(--right-width,  280px);                    /* default right */
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 2) Header spans only the middle col */
+.header {
+  grid-row:    1;
+  grid-column: 2;
+  height:      60px;
+  display:     flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:     0 1rem;
+  border-bottom: 1px solid #ddd;
+  background:  #fff;
+  z-index:     10;
+}
+
+/* 3) Sidebars & main styling */
+.sidebar {
+  grid-row:   2;
+  overflow-y: auto;
+  padding:    1rem;
+}
+.sidebar.left  { grid-column: 1; border-right: 1px solid #eee; }
+.sidebar.right { grid-column: 3; border-left:  1px solid #eee; }
+
+.main-content {
+  grid-row:    2;
+  grid-column: 2;
+  overflow-y:  auto;
+  padding:     1rem;
+}
+
+/* 4) Collapsed states — these MUST come after media queries */
+.layout-grid.left-collapsed {
+  --left-width: 0;
+}
+
+.layout-grid.right-collapsed {
+  --right-width: 0;
+  /* bump the min width of center when right is gone */
+  --main-min-width: calc(948px + 280px);
+}
+
+/* 5) Responsive tweaks */
+/* Shrink panel sizes and make middle fill fluidly under 1440px */
+@media (max-width: 1440px) {
+  .layout-grid {
+    --left-width:   180px;
+    --right-width:  240px;
+    /* main = viewport minus sidebars */
+    --main-min-width: 0px; 
+  }
+  /* preserve collapse logic */
+  .layout-grid.left-collapsed {
+    --left-width: 0;
+    --main-min-width: 0;
+  }
+  .layout-grid.right-collapsed {
+    --right-width: 0;
+    --main-min-width: 0;
+  }
+}
+
+/* Tablet: force-hide right and shrink left slightly */
+@media (max-width: 1024px) {
+  .layout-grid {
+    --left-width:  150px;
+    --right-width: 0;                  /* right is always hidden */
+    --main-min-width: 0px;
+  }
+}
+
+/* Mobile: hide both sidebars */
+@media (max-width: 768px) {
+  .layout-grid {
+    --left-width:    0;
+    --right-width:   0;
+    --main-min-width: 0px;
+  }
+}
